@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetFlix</title>
+</head>
+<body>
+    {{#each userlogin}}
+        <header>
+        <p class="nombreuser">{{nombre}}</p>
+        </header>
+        <main>
+        <script type="text/javascript">
+        </script>
+        <section class="inicio">
+                <h1>Inicio</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum veritatis itaque vitae esse! Voluptatem sapiente vero reprehenderit delectus distinctio at neque minima aliquam ex, itaque earum, suscipit vel dolor recusandae!</p>   
+        </section>
+        <section class="configuracion">
+            <h1>Configuraciones</h1>
+            <div class="nav">
+                <ul>
+                    <p>Usuario</p>
+                    <a href="/">Cerrar Sesion</a>
+                </ul>
+            </div>
+            <div class="panel">
+                <form action="" method="post">
+                    <input type="text" name="id" id="importante-id" value="{{id}}">
+                    <p id="nombre-view">{{nombre}}</p>
+                    <p id="correo-view">{{correo}}</p>
+                    <p id="contraseña-view">{{contraseña}}</p>
+                    <input type="text" name="nombre" id="nombre-ocult" value="{{nombre}}">
+                    <input type="text" name="correo" id="correo-ocult" value="{{correo}}">
+                    <input type="text" name="contraseña" id="contraseña-ocult" value="{{contraseña}}">
+                    <div class="button-ocult">
+                        <button class="edit-info" type="submit">Editar Informacion</button>
+                        <input type="button" id="cancel-edit" value="Cancelar">
+                    </div>
+                    <input type="button" value="Editar Informacion" id="editar-info">
+                </form>
+                <form action="" method="post">
+                    <input type="text" name="id" id="importante-id" value="{{id}}">
+                    <button type="submit">Eliminar Cuenta</button>
+                </form>
+            </div>
+        </section>
+        </main>
+    {{/each}}
+</body>
+<style>
+#nombre-ocult, #correo-ocult, #contraseña-ocult, .button-ocult,#importante-id{
+    display: none;
+}
+</style>
+<script>
+document.addEventListener('click', function(e){
+    if (e.target.id === 'editar-info'){
+        document.getElementById('nombre-ocult').style.display = 'flex';
+        document.getElementById('correo-ocult').style.display = 'flex';
+        document.getElementById('contraseña-ocult').style.display = 'flex';
+        document.getElementById('nombre-view').style.display = 'none';
+        document.getElementById('correo-view').style.display = 'none';
+        document.getElementById('contraseña-view').style.display = 'none';
+        document.querySelector('.button-ocult').style.display = 'flex';
+        e.target.style.display = 'none';
+    }
+});
+window.addEventListener('click', function(e){
+    if (e.target.id === 'cancel-edit'){
+        document.getElementById('nombre-ocult').style.display = 'none';
+        document.getElementById('correo-ocult').style.display = 'none';
+        document.getElementById('contraseña-ocult').style.display = 'none';
+        document.getElementById('nombre-view').style.display = 'flex';
+        document.getElementById('correo-view').style.display = 'flex';
+        document.getElementById('contraseña-view').style.display = 'flex';
+        document.querySelector('.button-ocult').style.display = 'none';
+        document.getElementById('editar-info').style.display = 'flex';
+    }
+});
+
+</script>
+</html>
